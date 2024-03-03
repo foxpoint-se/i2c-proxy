@@ -6,6 +6,8 @@ Background, in the Alen project a depth sensor MS5837_02BA by Blue Robotics is b
 
 So to avoid the noise issue we have experienced we reduced the length of the I2C cable to bare minimum and added this I2C proxy module, the module is reading from I2C and publishes the value over serial which is much more noise tolerant.
 
+The sampling rate of the sensor is set to 5Hz (200ms), as used by the ROS node consuming the data. Note that it is wise to have a check on the serial in-buffer in case the consumer starts falling behind over time, this could lead to old data beeing processed.
+
 ## Components
 I2C proxy is made up by the following components.
 
